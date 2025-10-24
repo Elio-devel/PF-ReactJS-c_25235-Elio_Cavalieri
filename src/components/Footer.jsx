@@ -4,12 +4,12 @@ import 'font-awesome/css/font-awesome.min.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white text-center py-4 mt-4">
+    <footer className="bg-info text-white text-center py-4 mt-4">
       <Container>
         <Row>
           <Col md={6}>
-            <p className="mb-0">Todo por 2 pesos</p>
-            <p className="mb-0">Avenida Siempre viva 742, Springfield</p>
+            <p className="mb-1">Tienda de articulos que te destacan por subre el resto...</p>
+            <p className="mb-1">Paseo de la Elegancia 123, Parque Splendid, Buenos Aires - Argentina</p>
           </Col>
           <Col md={6}>
             <div>

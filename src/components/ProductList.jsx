@@ -43,7 +43,7 @@ const ProductList = ({ category = null }) =>
   return (
     <Row>
       {products.map((product) => (
-        <Col md={4} key={product.id} className="mb-4">
+        <Col md={3} key={product.id} className="mb-4">
           <ProductCard product={product} agregarAlCarrito={handleAgregarAlCarrito} />
         </Col>
       ))}
