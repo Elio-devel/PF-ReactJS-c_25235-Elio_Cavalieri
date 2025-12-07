@@ -24,8 +24,8 @@ const Header = () => {
           <Nav.Link as={Link} to="/infaltables" className="me-3">Electrónica</Nav.Link>
 
           <div className="d-flex align-items-center">
-            <Button variant="outline-light" as={Link} to="/administracion" className="me-2">
-              Administración
+            <Button variant="outline-light" as={Link} to="/login" className="me-3">
+              Login
             </Button>
             <Link to="/carrito" className="text-white">
               <FontAwesomeIcon icon={faShoppingCart} size="lg" />
