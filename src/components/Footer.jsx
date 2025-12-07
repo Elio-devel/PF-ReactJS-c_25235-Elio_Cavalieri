@@ -8,7 +8,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <p className="mb-1">Tienda de articulos que te destacan por subre el resto...</p>
+            <p className="mb-1">Tienda de articulos que te destacan por sobre el resto...</p>
             <p className="mb-1">Paseo de la Elegancia 123, Parque Splendid, Buenos Aires - Argentina</p>
           </Col>
           <Col md={6}>
@@ -21,6 +21,9 @@ const Footer = () => {
               </a>
               <a href="#" className="text-white">
                 <i className="fa fa-instagram fa-2x"></i>
+              </a>
+              <a href="#" className="text-white">
+                <i className="fa fa-whatsapp fa-2x"></i>
               </a>
             </div>
           </Col>

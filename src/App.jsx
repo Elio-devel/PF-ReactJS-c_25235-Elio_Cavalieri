@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
-import Adopciones from './components/Adopciones';
+import Ofertas from './components/Ofertas';
 import Infaltables from './components/Infaltables';
 import Login from './components/Login'; 
 import Footer from './components/Footer'
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/administracion" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/adopciones" element={<Adopciones />} />
+        <Route path="/ofertas" element={<Ofertas />} />
         <Route path="/infaltables" element={<Infaltables />} />
       </Routes>
       <Footer/>
