@@ -19,7 +19,7 @@ const Footer = () => {
               <a href="#" className="text-white me-3">
                 <i className="fa fa-twitter fa-2x"></i>
               </a>
-              <a href="#" className="text-white">
+              <a href="#" className="text-white me-3">
                 <i className="fa fa-instagram fa-2x"></i>
               </a>
               <a href="#" className="text-white">
