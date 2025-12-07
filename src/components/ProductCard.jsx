@@ -18,7 +18,7 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
       <Card.Body className="d-flex flex-column">
         <Card.Title>{product.title}</Card.Title>
         <Card.Text>
-          {product.description.slice(0, 100)}...
+          {product.description.slice(0, 100)}... --si es muy largo el texto lo corta en 100 caracteres
         </Card.Text>
         <Card.Text>
           <strong>${product.price}</strong>
