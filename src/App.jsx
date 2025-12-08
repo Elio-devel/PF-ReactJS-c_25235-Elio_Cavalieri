@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import { AuthProvider } from './AuthContext';
 //import PrivateRoute from './PrivateRoute';
 //import Dashboard from './Dashboard';
@@ -10,22 +12,30 @@ import Infaltables from './components/Infaltables';
 //import Login from './components/Login';
 //import Login from './Login';
 import Login from './components/Login';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import { CartProvider } from './components/CartContext';
+import Carrito from './components/Carrito';
+import CrudProductos from './components/CrudProductos';
+
 
 function App() {
 
   return (
-     <Router>
-      <Header />
-      <Routes>
-        <Route path="*" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/ofertas" element={<Ofertas />} />
-        <Route path="/infaltables" element={<Infaltables />} />
-      </Routes>
-      <Footer/>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="*" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/ofertas" element={<Ofertas />} />
+          <Route path="/infaltables" element={<Infaltables />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/crud" element={<CrudProductos />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </CartProvider>
   )
 }
 

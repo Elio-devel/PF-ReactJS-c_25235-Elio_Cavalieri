@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button, Form, Modal } from "react-bootstrap";
 
-const API_URL = "https://68489b9bec44b9f349416b0e.mockapi.io/api/productos";
+//const API_URL = "https://68489b9bec44b9f349416b0e.mockapi.io/api/productos";
+const API_URL = "https://6936099afa8e704dafbf8533.mockapi.io/Products";
 
 const CrudProductos = () => {
   const [productos, setProductos] = useState([]);
@@ -16,7 +17,7 @@ const CrudProductos = () => {
   const [editId, setEditId] = useState(null);
 
  
- ///obtengo los productos.
+ ///fetch --> obtengo los productos.
   const getProductos = () => {
     fetch(API_URL)
       .then((res) => res.json())
@@ -31,12 +32,12 @@ const CrudProductos = () => {
     setEditId(null);
   };
 
-  //Abrir modal 
+  //Abrir el modal 
   const handleShow = (producto) => {
     setShow(true);
     if (producto) {
       setForm({
-        ...producto,
+        ...producto,  //operador spread para copiar todas las propiedades del producto en otro objeto
         price: Number(producto.price),
         stock: Number(producto.stock),
       });
@@ -44,7 +45,7 @@ const CrudProductos = () => {
     }
   };
 
-  // 🔹 Crear o editar producto
+  //Crear o editar producto
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -73,7 +74,7 @@ const CrudProductos = () => {
       .catch((error) => console.error("Error:", error));
   };
 
-  // Eliminar 
+  // Eliminar un producto
   const eliminarProducto = (id) => {
     if (!window.confirm("¿Seguro que quieres eliminar este producto?")) return;
 
