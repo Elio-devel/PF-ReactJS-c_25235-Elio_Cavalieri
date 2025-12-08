@@ -15,3 +15,8 @@ npm install  --save @fortawesome/react-fontawesome
 Para ejecutar el proyecto:
 -------------------------
 npm run dev
+
+El usuario Administrador de la libreria API es:
+----------------------------------------------
+user:  admin
+clave: 1234
