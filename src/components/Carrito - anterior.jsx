@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
-import { Container, Table, Button, Row, Col } from 'react-bootstrap';
+import { Container, Table, Button } from 'react-bootstrap';
 import { CartContext } from './CartContext';
 
 const Carrito = () => {
-  const { carrito, removeFromCart, clearCart } = useContext(CartContext);
+  const { carrito, setCarrito } = useContext(CartContext);
 
-  const total = carrito.reduce(
-    (acc, item) => acc + Number(item.price) * item.cantidad,
-    0
-  );
+  const eliminarDelCarrito = (id) => {
+    setCarrito(prev => prev.filter(producto => producto.id !== id));
+  };
+
+  const total = carrito.reduce((acc, item) => acc + Number(item.price) * item.cantidad, 0);
 
   if (carrito.length === 0) {
     return (
@@ -20,16 +21,8 @@ const Carrito = () => {
 
   return (
     <Container className="mt-4">
-      <Row className="align-items-center mb-3">
-        <Col><h3>Carrito de compras</h3></Col>
-        <Col className="text-end">
-          <Button variant="outline-danger" onClick={clearCart}>
-            Vaciar carrito
-          </Button>
-        </Col>
-      </Row>
-
-      <Table striped bordered hover responsive>
+      <h3>Carrito de compras</h3>
+      <Table striped bordered hover responsive className="mt-3">
         <thead>
           <tr>
             <th>Producto</th>
@@ -50,7 +43,7 @@ const Carrito = () => {
                 <Button
                   variant="danger"
                   size="sm"
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => eliminarDelCarrito(item.id)}
                 >
                   Eliminar
                 </Button>
@@ -59,10 +52,7 @@ const Carrito = () => {
           ))}
         </tbody>
       </Table>
-
-      <h5 className="text-end mt-3">
-        Total a pagar: ${total.toFixed(2)}
-      </h5>
+      <h5 className="text-end">Total a pagar: ${total.toFixed(2)}</h5>
     </Container>
   );
 };

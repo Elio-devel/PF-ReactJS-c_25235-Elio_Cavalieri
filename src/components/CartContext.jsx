@@ -28,9 +28,17 @@ export const CartProvider = ({ children }) => {
   };
 
   // Vaciar el carrito (opcional)
-  const vaciarCarrito = () => {
+  //const vaciarCarrito = () => {
+  //  setCarrito([]);
+  //};
+  const removeFromCart = (id) => {
+    setCarrito(prev => prev.filter(item => item.id !== id));
+  };
+
+  const clearCart = () => {
     setCarrito([]);
   };
+
 
   return (
     <CartContext.Provider
@@ -39,7 +47,9 @@ export const CartProvider = ({ children }) => {
         setCarrito,
         agregarAlCarrito,
         eliminarDelCarrito,
-        vaciarCarrito
+        //vaciarCarrito
+        removeFromCart,
+        clearCart
       }}
     >
       {children}
