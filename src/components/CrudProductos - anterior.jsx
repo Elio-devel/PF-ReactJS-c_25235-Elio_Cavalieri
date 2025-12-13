@@ -16,10 +16,8 @@ const CrudProductos = () => {
   });
   const [editId, setEditId] = useState(null);
 
-  // NUEVO: estado de errores
-  const [errors, setErrors] = useState({});
-
-  ///fetch --> obtengo los productos.
+ 
+ ///fetch --> obtengo los productos.
   const getProductos = () => {
     fetch(API_URL)
       .then((res) => res.json())
@@ -32,14 +30,11 @@ const CrudProductos = () => {
     setShow(false);
     setForm({ title: "", description: "", price: "", stock: "", image: "" });
     setEditId(null);
-    setErrors({});
   };
-
 
   //Abrir el modal 
   const handleShow = (producto) => {
     setShow(true);
-    setErrors({});
     if (producto) {
       setForm({
         ...producto,  //operador spread para copiar todas las propiedades del producto en otro objeto
@@ -50,40 +45,9 @@ const CrudProductos = () => {
     }
   };
 
-  //validar formulario
-  const validarFormulario = () => {
-    const newErrors = {};
-
-    // Title
-    if (!form.title || form.title.trim() === "") {
-      newErrors.title = "El título es obligatorio";
-    }
-
-    // Description
-    if (!form.description || form.description.trim() === "") {
-      newErrors.description = "La descripción es obligatoria";
-    }
-
-    // Price
-    if (!form.price || form.price <= 0) {
-      newErrors.price = "El precio debe ser mayor a 0";
-    }
-
-    // Stock
-    if (!form.stock || form.stock <= 0) {
-      newErrors.stock = "El stock debe ser mayor a 0";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-
   //Crear o editar producto
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!validarFormulario()) return;
 
     const productData = {
       ...form,
@@ -198,11 +162,8 @@ const CrudProductos = () => {
               <Form.Control
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
-                isInvalid={!!errors.title}
+                required
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.title}
-              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-2">
@@ -212,43 +173,32 @@ const CrudProductos = () => {
                 onChange={(e) =>
                   setForm({ ...form, description: e.target.value })
                 }
-                isInvalid={!!errors.description}
+                required
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.description}
-              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-2">
               <Form.Label>Precio</Form.Label>
               <Form.Control
                 type="number"
-                min="1"
                 value={form.price}
                 onChange={(e) =>
                   setForm({ ...form, price: Number(e.target.value) })
                 }
-                isInvalid={!!errors.price}
+                required
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.price}
-              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-2">
               <Form.Label>Stock</Form.Label>
               <Form.Control
                 type="number"
-                min="1"
                 value={form.stock}
                 onChange={(e) =>
                   setForm({ ...form, stock: Number(e.target.value) })
                 }
-                isInvalid={!!errors.stock}
+                required
               />
-              <Form.Control.Feedback type="invalid">
-                {errors.stock}
-              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-2">
